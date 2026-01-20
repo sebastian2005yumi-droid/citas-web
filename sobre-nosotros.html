@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - AppoinMed</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <style>
+        .sobre-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .hero-sobre {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 140px auto 80px;
+        }
+
+        .hero-sobre h1 {
+            font-size: 42px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .hero-sobre p {
+            font-size: 18px;
+            margin: 0;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contenido-sobre {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .contenido-sobre h2 {
+            color: #0d47a1;
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .contenido-sobre.mision h2 {
+            color: #1565c0;
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .contenido-sobre.vision h2 {
+            color: #1976d2;
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            font-weight: 700;
+        }
+
+        .contenido-sobre p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 15px 0;
+        }
+
+        .contenido-sobre ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .contenido-sobre li {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .contenido-sobre li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1976d2;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .imagen-placeholder {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 80px;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 120px;
+        }
+
+        .valores {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .valores h2 {
+            color: #0d47a1;
+            text-align: center;
+            font-size: 32px;
+            margin: 0 0 50px 0;
+            font-weight: 700;
+        }
+
+        .grid-valores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .valor-item {
+            text-align: center;
+        }
+
+        .valor-icono {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .valor-item h3 {
+            color: #0d47a1;
+            font-size: 22px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .valor-item p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .equipo {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 80px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .equipo h2 {
+            color: #0d47a1;
+            text-align: center;
+            font-size: 32px;
+            margin: 0 0 50px 0;
+            font-weight: 700;
+        }
+
+        .grid-equipo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .miembro-equipo {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .miembro-equipo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .miembro-foto {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin: 0 auto 20px;
+        }
+
+        .miembro-equipo h3 {
+            color: #0d47a1;
+            margin: 0 0 5px 0;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .miembro-cargo {
+            color: #1976d2;
+            font-weight: 600;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .certificaciones {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .certificaciones h2 {
+            color: #0d47a1;
+            font-size: 32px;
+            margin: 0 0 30px 0;
+            font-weight: 700;
+        }
+
+        .cert-items {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #0d47a1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .sobre-container {
+                padding: 0 20px;
+            }
+
+            .contenido-sobre,
+            .grid-valores,
+            .grid-equipo {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-sobre {
+                margin: 110px auto 60px;
+                padding: 60px 30px;
+            }
+
+            .hero-sobre h1 {
+                font-size: 32px;
+            }
+
+            .valores,
+            .equipo,
+            .certificaciones {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sobre-container {
+                padding: 0 15px;
+            }
+
+            .hero-sobre {
+                margin: 100px auto 40px;
+                padding: 40px 20px;
+            }
+
+            .hero-sobre h1 {
+                font-size: 26px;
+            }
+
+            .hero-sobre p {
+                font-size: 15px;
+            }
+
+            .contenido-sobre h2,
+            .valores h2,
+            .equipo h2,
+            .certificaciones h2 {
+                font-size: 26px;
+            }
+
+            .imagen-placeholder {
+                padding: 60px;
+                font-size: 80px;
+            }
+
+            .valores,
+            .equipo,
+            .certificaciones {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            .cert-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header class="top-bar">
+        <nav class="nav">
+            <div class="logo">
+                <img src="Img/imagen1.png" alt="Logo">
+                <span>Sistema de Citas</span>
+            </div>
+            <ul class="menu">
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="sobre-nosotros.html" class="active">Sobre Nosotros</a></li>
+                <li><a href="doctores.php">Doctores</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="Formulario.html">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="sobre-container fade-in">
+        <!-- HERO -->
+        <div class="hero-sobre">
+            <h1>🏥 Sobre AppoinMed</h1>
+            <p>Somos una clínica moderna comprometida con la excelencia médica y el bienestar de nuestros pacientes desde 2010.</p>
+        </div>
+
+        <!-- MISIÓN Y VISIÓN -->
+        <div class="contenido-sobre mision">
+            <div>
+                <h2>Nuestra Misión</h2>
+                <p>Proporcionar servicios de salud de calidad, accesibles y humanizados, utilizando la mejor tecnología médica y contando con profesionales altamente capacitados.</p>
+                <ul>
+                    <li>Atención médica de excelencia</li>
+                    <li>Tecnología de punta</li>
+                    <li>Personal calificado</li>
+                    <li>Atención humanizada</li>
+                </ul>
+            </div>
+            <div class="imagen-placeholder">🎯</div>
+        </div>
+
+        <div class="contenido-sobre vision">
+            <div>
+                <h2>Nuestra Visión</h2>
+                <p>Ser la clínica líder en la región, reconocida por la calidad de sus servicios, innovación médica y compromiso con la salud integral de la comunidad.</p>
+                <ul>
+                    <li>Liderazgo en la región</li>
+                    <li>Innovación continua</li>
+                    <li>Satisfacción del paciente</li>
+                    <li>Responsabilidad social</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VALORES -->
+        <div class="valores">
+            <h2>Nuestros Valores</h2>
+            <div class="grid-valores">
+                <div class="valor-item">
+                    <div class="valor-icono">❤️</div>
+                    <h3>Empatía</h3>
+                    <p>Nos importa el bienestar integral de cada paciente.</p>
+                </div>
+                <div class="valor-item">
+                    <div class="valor-icono">✓</div>
+                    <h3>Excelencia</h3>
+                    <p>Buscamos siempre la mejor calidad en nuestros servicios.</p>
+                </div>
+                <div class="valor-item">
+                    <div class="valor-icono">🔒</div>
+                    <h3>Integridad</h3>
+                    <p>Actuamos con honestidad y transparencia.</p>
+                </div>
+                <div class="valor-item">
+                    <div class="valor-icono">🚀</div>
+                    <h3>Innovación</h3>
+                    <p>Adoptamos nuevas tecnologías y métodos.</p>
+                </div>
+                <div class="valor-item">
+                    <div class="valor-icono">🤝</div>
+                    <h3>Colaboración</h3>
+                    <p>Trabajamos en equipo para lograr objetivos.</p>
+                </div>
+                <div class="valor-item">
+                    <div class="valor-icono">🌱</div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Cuidamos el medio ambiente y la sociedad.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- EQUIPO DIRECTIVO -->
+        <div class="equipo">
+            <h2>Nuestro Equipo Directivo</h2>
+            <div class="grid-equipo">
+                <div class="miembro-equipo">
+                    <div class="miembro-foto">👨‍💼</div>
+                    <h3>Dr. Felipe Vélez</h3>
+                    <p class="miembro-cargo">Director General</p>
+                </div>
+                <div class="miembro-equipo">
+                    <div class="miembro-foto">👨‍⚕️</div>
+                    <h3>Dr. Andrés Mora</h3>
+                    <p class="miembro-cargo">Director Médico</p>
+                </div>
+                <div class="miembro-equipo">
+                    <div class="miembro-foto">👩‍💼</div>
+                    <h3>Dra. Catalina Ruiz</h3>
+                    <p class="miembro-cargo">Directora de Operaciones</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CERTIFICACIONES -->
+        <div class="certificaciones">
+            <h2>Certificaciones y Acreditaciones</h2>
+            <div class="cert-items">
+                <div class="cert-badge">✓ ISO 9001:2015</div>
+                <div class="cert-badge">✓ Acreditación JCI</div>
+                <div class="cert-badge">✓ Certificado de Excelencia</div>
+                <div class="cert-badge">✓ Licencia Sanitaria Vigente</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Sistema de Citas Médicas | AppoinMed</p>
+    </footer>
+
+</body>
+</html>

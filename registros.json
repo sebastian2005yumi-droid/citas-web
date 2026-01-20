@@ -1,0 +1,19 @@
+[
+  {
+    "fecha_registro": "2026-01-15 10:00:00",
+    "nombres": "Usuario",
+    "apellidos": "Test",
+    "cedula": "1234567890",
+    "correo": "test@example.com",
+    "clave_encriptada": "$2y$10$i6qx9.V2j/vfYYPgNLJbj.c6KJJIyvbWXOq8L1K6HJVkQ8r7.gWVS",
+    "edad": "25",
+    "fecha_nacimiento": "2001-01-15",
+    "genero": "Masculino",
+    "motivo_consulta": "Consulta general",
+    "especialidad": "Medicina General",
+    "satisfaccion": "9",
+    "color_favorito": "Azul",
+    "comentarios": "Usuario de prueba",
+    "foto": ""
+  }
+]

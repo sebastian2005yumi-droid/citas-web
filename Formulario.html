@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a tu Cuenta - AppoinMed</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <style>
+        .tabs-auth {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            color: #666;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            color: #1976d2;
+        }
+
+        .tab-btn.active {
+            color: #0d47a1;
+            border-bottom-color: #1976d2;
+        }
+
+        .tab-content-auth {
+            display: none;
+        }
+
+        .tab-content-auth.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-card .note {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e3f2fd;
+        }
+
+        .form-card .note a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-card .note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="form-page">
+
+    <header class="top-bar">
+        <nav class="nav">
+            <div class="logo">
+                <img src="Img/imagen1.png" alt="Logo">
+                <span>Sistema de Citas</span>
+            </div>
+
+            <ul class="menu">
+                <li><a href="Inicio.php">Inicio</a></li>
+                <li><a href="Formulario.html" class="active">Acceso</a></li>
+                <li><a href="index.php">Agendar</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="layout fade-in">
+        
+        <section class="info-panel">
+            <h2>Tu Salud es Importante</h2>
+            <p>
+                Accede a tu cuenta para gestionar tus citas médicas de forma rápida,
+                segura y organizada.
+            </p>
+
+            <ul>
+                <li>✔ Acceso seguro a tu cuenta</li>
+                <li>✔ Gestiona tus citas médicas</li>
+                <li>✔ Historial médico completo</li>
+            </ul>
+        </section>
+
+        <section class="form-card">
+            <div class="form-header">
+                <img src="Img/imagen1.png" alt="Logo">
+                <h1>Tu Cuenta AppoinMed</h1>
+            </div>
+            <hr style="margin:12px 0 18px 0;border:none;border-top:1px solid #e6f0fb">
+
+            <!-- TABS -->
+            <div class="tabs-auth">
+                <button class="tab-btn active" onclick="mostrarTab(event, 'login')">🔓 Iniciar Sesión</button>
+                <button class="tab-btn" onclick="mostrarTab(event, 'registro')">📝 Registrarse</button>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="login" class="tab-content-auth active">
+                <form action="login.php" method="post">
+                    <div class="field-group">
+                        <label for="correo-login">Correo Electrónico</label>
+                        <input type="email" id="correo-login" name="correo" required placeholder="usuario@email.com" autofocus>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="clave-login">Contraseña</label>
+                        <input type="password" id="clave-login" name="clave" required placeholder="Tu contraseña">
+                    </div>
+
+                    <div class="field-group" style="text-align: right; margin-bottom: 20px;">
+                        <a href="recuperar-contrasena.html" style="color: #1976d2; text-decoration: none; font-size: 13px;">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <div class="actions">
+                        <a href="Inicio.php" class="btn ghost">← Volver</a>
+                        <input type="submit" class="btn" value="✓ Iniciar Sesión">
+                    </div>
+                </form>
+            </div>
+
+            <!-- REGISTRO -->
+            <div id="registro" class="tab-content-auth">
+                <form action="registrar.php" method="post" enctype="multipart/form-data">
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="nom">Nombres</label>
+                            <input type="text" id="nom" name="nom" required maxlength="40" placeholder="Ingrese sus nombres">
+                        </div>
+                        <div class="col field-group">
+                            <label for="ape">Apellidos</label>
+                            <input type="text" id="ape" name="ape" required maxlength="40" placeholder="Ingrese sus apellidos">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="ced">Cédula</label>
+                            <input type="text" id="ced" name="ced" maxlength="10" required placeholder="Número de cédula">
+                        </div>
+                        <div class="col field-group">
+                            <label for="correo-reg">Correo electrónico</label>
+                            <input type="email" id="correo-reg" name="correo" required placeholder="usuario@email.com">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="clave-reg">Contraseña</label>
+                            <input type="password" id="clave-reg" name="clave" required placeholder="Cree una contraseña">
+                        </div>
+                        <div class="col field-group">
+                            <label for="edad">Edad</label>
+                            <input type="number" id="edad" name="edad" min="1" max="100" placeholder="Edad">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="nac">Fecha de nacimiento</label>
+                            <input type="date" id="nac" name="nac">
+                        </div>
+                        <div class="col field-group">
+                            <label>Género</label>
+                            <div class="inline">
+                                <label><input type="radio" name="gen" value="Masculino"> Masculino</label>
+                                <label><input type="radio" name="gen" value="Femenino"> Femenino</label>
+                                <label><input type="radio" name="gen" value="Otro"> Otro</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label>Motivo de consulta médica</label>
+                        <div class="checkboxes">
+                            <label><input type="checkbox" name="motivo[]" value="Revisión general"> Revisión general</label>
+                            <label><input type="checkbox" name="motivo[]" value="Consulta especializada"> Consulta especializada</label>
+                            <label><input type="checkbox" name="motivo[]" value="Exámenes"> Exámenes</label>
+                            <label><input type="checkbox" name="motivo[]" value="Otros"> Otros</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="esp">Seleccione especialidad médica</label>
+                            <select name="esp" id="esp">
+                                <option value="">- Seleccione una opción -</option>
+                                <option value="Medicina General">Medicina General</option>
+                                <option value="Pediatría">Pediatría</option>
+                                <option value="Cardiología">Cardiología</option>
+                                <option value="Dermatología">Dermatología</option>
+                                <option value="Odontología">Odontología</option>
+                            </select>
+                        </div>
+                        <div class="col field-group">
+                            <label for="foto">Subir foto de perfil</label>
+                            <input type="file" id="foto" name="foto">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col field-group">
+                            <label for="sat">Nivel de satisfacción con la página</label>
+                            <input type="range" id="sat" name="sat" min="1" max="10" value="5">
+                        </div>
+                        <div class="col field-group">
+                            <label for="col">Seleccione un color favorito</label>
+                            <input type="color" id="col" name="col">
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="com">Comentarios adicionales</label>
+                        <textarea id="com" name="com" placeholder="Escriba aquí..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="fuente" value="formulario_registro">
+
+                    <div class="actions">
+                        <input type="reset" class="btn ghost" value="Limpiar">
+                        <input type="submit" class="btn" value="✓ Crear Cuenta">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Sistema de Citas Médicas | AppoinMed</p>
+    </footer>
+
+    <script>
+        function mostrarTab(event, tabName) {
+            // Prevenir comportamiento por defecto
+            event.preventDefault();
+
+            // Ocultar todos los tabs
+            const tabs = document.querySelectorAll('.tab-content-auth');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remover clase active de todos los botones
+            const botones = document.querySelectorAll('.tab-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+
+            // Mostrar el tab seleccionado
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>

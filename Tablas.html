@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesos Médicos - AppoinMed</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+            padding-top: 90px;
+            padding: 40px 25px;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .tablas-contenedor {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .seccion-tabla {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            font-size: 40px;
+            font-weight: 700;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            color: white;
+            margin-bottom: 24px;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .tabla-container {
+            width: 100%;
+            padding: 28px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow-x: auto;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+
+        th {
+            background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+            color: white;
+            padding: 18px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            border-bottom: 3px solid #0d47a1;
+            letter-spacing: 0.3px;
+        }
+
+        td {
+            padding: 16px 18px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 15px;
+            color: #333333;
+            text-align: left;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        tbody tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        tfoot {
+            background-color: #e3f2fd;
+            font-weight: 700;
+            border-top: 2px solid #1976d2;
+        }
+
+        tfoot td {
+            color: #0d47a1;
+            padding: 18px 16px;
+        }
+
+        .contenedor-flecha {
+            text-align: center;
+            margin-top: 70px;
+            padding: 30px 0;
+        }
+
+        .contenedor-flecha a {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contenedor-flecha a:hover {
+            transform: translateY(-8px);
+        }
+
+        .contenedor-flecha img {
+            width: 90px;
+            filter: drop-shadow(0 4px 12px rgba(13, 71, 161, 0.2));
+            transition: filter 0.3s ease;
+        }
+
+        .contenedor-flecha a:hover img {
+            filter: drop-shadow(0 8px 20px rgba(13, 71, 161, 0.35));
+        }
+
+        @media (max-width: 768px) {
+            .tabla-container {
+                padding: 20px;
+            }
+
+            th, td {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 35px;
+            }
+
+            h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            body {
+                padding: 20px 15px;
+                padding-top: 90px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <nav class="nav">
+            <div class="logo">
+                <img src="Img/imagen1.png" alt="Logo">
+                <span>Sistema de Citas</span>
+            </div>
+
+            <ul class="menu">
+                <li><a href="Inicio.php">Inicio</a></li>
+                <li><a href="Formulario.html">Registro</a></li>
+                <li><a href="index.php">Agendar</a></li>
+                <li><a href="doctores.php">Doctores</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="fade-in">
+        <h1>📊 Procesos Médicos del Sistema</h1>
+
+        <div class="tablas-contenedor">
+
+        <section class="seccion-tabla">
+            <h3>📋 Tabla de Procesos</h3>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Proceso</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Registro de Paciente</td>
+                            <td>✓ Activo</td>
+                            <td>2026-01-14</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Agendar Cita</td>
+                            <td>✓ Activo</td>
+                            <td>2026-01-14</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Consulta Médica</td>
+                            <td>✓ Activo</td>
+                            <td>2026-01-14</td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Historial Médico</td>
+                            <td>✓ Activo</td>
+                            <td>2026-01-14</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total de Procesos: 4</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion-tabla">
+            <h3>👨‍⚕️ Tabla de Especialidades</h3>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Especialidad</th>
+                            <th>Médicos</th>
+                            <th>Disponibilidad</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Medicina General</td>
+                            <td>5</td>
+                            <td>Lun - Vie</td>
+                            <td>123-4567</td>
+                        </tr>
+                        <tr>
+                            <td>Pediatría</td>
+                            <td>3</td>
+                            <td>Lun - Vie</td>
+                            <td>123-4568</td>
+                        </tr>
+                        <tr>
+                            <td>Cardiología</td>
+                            <td>2</td>
+                            <td>Mar - Jue</td>
+                            <td>123-4569</td>
+                        </tr>
+                        <tr>
+                            <td>Dermatología</td>
+                            <td>3</td>
+                            <td>Lun - Mié</td>
+                            <td>123-4570</td>
+                        </tr>
+                        <tr>
+                            <td>Odontología</td>
+                            <td>4</td>
+                            <td>Lun - Sáb</td>
+                            <td>123-4571</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Total de Especialidades: 5</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        </div>
+
+        <div class="contenedor-flecha">
+            <a href="Inicio.html" title="Volver al Inicio">
+                <img src="Img/Flecha.png" alt="Volver">
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Sistema de Citas Médicas | AppoinMed</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<?php
+// Suprimir notices de PHP
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Si el usuario ya está registrado, redirigir al dashboard
+if (isset($_SESSION['usuario_registrado']) && $_SESSION['usuario_registrado'] === true) {
+    header("Location: dashboard.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - AppoinMed</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <style>
+        .recuperar-container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .recuperar-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .recuperar-header h1 {
+            color: #0d47a1;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .recuperar-header p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .icono-recuperar {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #0d47a1;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e3f2fd;
+            border-radius: 10px;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1976d2;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+        }
+
+        .botones {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primario {
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.25);
+        }
+
+        .btn-primario:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+        }
+
+        .btn-secundario {
+            background: #f3f8fc;
+            color: #1565c0;
+            border: 2px solid #1976d2;
+        }
+
+        .btn-secundario:hover {
+            background: #e3f2fd;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #0d47a1;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .recuperar-container {
+                margin: 80px 20px;
+                padding: 25px;
+            }
+
+            .recuperar-header h1 {
+                font-size: 24px;
+            }
+
+            .botones {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%); min-height: 100vh; padding: 20px;">
+
+    <div class="recuperar-container">
+        <div class="recuperar-header">
+            <div class="icono-recuperar">🔐</div>
+            <h1>Recuperar Contraseña</h1>
+            <p>Ingresa tu correo electrónico para recuperar tu contraseña</p>
+        </div>
+
+        <div class="info-box">
+            📧 Te enviaremos un código de verificación a tu correo para que puedas cambiar tu contraseña.
+        </div>
+
+        <form action="enviar-codigo.php" method="POST">
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tu@email.com" required autofocus>
+            </div>
+
+            <div class="botones">
+                <a href="Formulario.html" class="btn btn-secundario">← Volver</a>
+                <button type="submit" class="btn btn-primario">✓ Enviar Código</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - AppoinMed</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <style>
+        .contacto-container {
+            max-width: 1300px;
+            margin: 140px auto 80px;
+            padding: 0 30px;
+        }
+
+        .contacto-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .contacto-header h1 {
+            color: #0d47a1;
+            font-size: 40px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .contacto-header p {
+            color: #666;
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .contacto-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #1976d2;
+        }
+
+        .info-item h3 {
+            color: #0d47a1;
+            margin: 0 0 15px 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .info-item-contenido {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .info-item-contenido strong {
+            color: #0d47a1;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-item a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contacto-form {
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .contacto-form h2 {
+            color: #0d47a1;
+            margin: 0 0 30px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #0d47a1;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e3f2fd;
+            border-radius: 10px;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1976d2;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+            color: white;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.25);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+        }
+
+        .horarios {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            padding: 40px;
+            border-radius: 14px;
+            margin-bottom: 80px;
+        }
+
+        .horarios h2 {
+            color: #0d47a1;
+            margin: 0 0 30px 0;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .horarios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .horario-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #1976d2;
+        }
+
+        .horario-item h3 {
+            color: #0d47a1;
+            margin: 0 0 12px 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .horario-item p {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .mapa {
+            width: 100%;
+            height: 400px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin-bottom: 80px;
+        }
+
+        .redes-sociales {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .redes-sociales h2 {
+            color: #0d47a1;
+            margin: 0 0 30px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .redes-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .redes-links a {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(21, 101, 192, 0.25);
+        }
+
+        .redes-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.4);
+        }
+
+        @media (max-width: 900px) {
+            .contacto-container {
+                margin: 110px auto 60px;
+                padding: 0 20px;
+            }
+
+            .contacto-contenido,
+            .horarios-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contacto-header h1 {
+                font-size: 32px;
+            }
+
+            .mapa {
+                height: 300px;
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contacto-container {
+                margin: 100px auto 40px;
+                padding: 0 15px;
+            }
+
+            .contacto-header h1 {
+                font-size: 26px;
+            }
+
+            .contacto-form,
+            .horarios,
+            .redes-sociales {
+                padding: 25px 20px;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+
+            .mapa {
+                height: 250px;
+                font-size: 50px;
+                margin-bottom: 40px;
+            }
+
+            .redes-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ENCABEZADO -->
+    <header class="top-bar">
+        <nav class="nav">
+            <div class="logo">
+                <img src="Img/imagen1.png" alt="Logo">
+                <span>Sistema de Citas</span>
+            </div>
+            <ul class="menu">
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="doctores.php">Doctores</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+                <li><a href="Formulario.html">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contacto-container fade-in">
+        <!-- HEADER -->
+        <div class="contacto-header">
+            <h1>📞 Contacto</h1>
+            <p>Estamos aquí para responder tus preguntas y atender tus necesidades.</p>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="contacto-contenido">
+            <!-- INFORMACIÓN DE CONTACTO -->
+            <div class="contacto-info">
+                <div class="info-item">
+                    <h3>📞 Teléfono</h3>
+                    <div class="info-item-contenido">
+                        <strong>Principal:</strong> +56 2 2345 6789<br>
+                        <strong>Emergencia:</strong> +56 2 2345 6700<br>
+                        <strong>Citas:</strong> +56 2 2345 6750
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h3>📧 Correo Electrónico</h3>
+                    <div class="info-item-contenido">
+                        <strong>General:</strong> <a href="mailto:info@appoinmed.com">info@appoinmed.com</a><br>
+                        <strong>Citas:</strong> <a href="mailto:citas@appoinmed.com">citas@appoinmed.com</a><br>
+                        <strong>Soporte:</strong> <a href="mailto:soporte@appoinmed.com">soporte@appoinmed.com</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h3>📍 Ubicación</h3>
+                    <div class="info-item-contenido">
+                        <strong>Dirección:</strong> Calle Principal 123, Piso 5<br>
+                        Sector Centro, Comuna Santiago<br>
+                        Región Metropolitana, Chile 8320000
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO DE CONTACTO -->
+            <div class="contacto-form">
+                <h2>Envíanos un Mensaje</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu consulta" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-button">✓ Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- HORARIOS -->
+        <div class="horarios">
+            <h2>⏰ Horarios de Atención</h2>
+            <div class="horarios-grid">
+                <div class="horario-item">
+                    <h3>Lunes a Viernes</h3>
+                    <p>8:00 AM - 7:00 PM</p>
+                </div>
+                <div class="horario-item">
+                    <h3>Sábados</h3>
+                    <p>9:00 AM - 3:00 PM</p>
+                </div>
+                <div class="horario-item">
+                    <h3>Domingos</h3>
+                    <p>Cerrado (Emergencias: 24h)</p>
+                </div>
+                <div class="horario-item">
+                    <h3>Festivos</h3>
+                    <p>Cerrado (Emergencias: 24h)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAPA -->
+        <div class="mapa">
+            📍
+        </div>
+
+        <!-- REDES SOCIALES -->
+        <div class="redes-sociales">
+            <h2>Síguenos en Nuestras Redes Sociales</h2>
+            <div class="redes-links">
+                <a href="#" title="Facebook">f</a>
+                <a href="#" title="Instagram">📷</a>
+                <a href="#" title="Twitter">𝕏</a>
+                <a href="#" title="WhatsApp">💬</a>
+                <a href="#" title="LinkedIn">in</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Sistema de Citas Médicas | AppoinMed</p>
+    </footer>
+
+</body>
+</html>
